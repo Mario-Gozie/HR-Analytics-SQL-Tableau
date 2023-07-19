@@ -77,15 +77,24 @@ Exec sp_rename 'June_2022.F2','Name', 'COLUMN';
 --viewing corrections after renamings.
 select * from June_2022;
 
+-- cleaning the Attendance key Table
+select * from Attendance_Key
 
+-- Everything appear nice except for the second column name so I need to rename it.
 
+Exec sp_rename 'Attendance_key.F2','Attendance_detail', 'COLUMN';
+
+--viewing Table to check for changes.
+
+select * from Attendance_Key;
 
 
 
 -- looking at the date in rows, its not in the the right format. it is supposed to be in a column so as to aid our Analysis.
 -- To unpivot this easily, I will use dynamic SQL inside a procedure
 go
-
+ Drop Procedure if exists dbo.UnpivotdataforMonths
+ go
 Create Procedure dbo.UnpivotdataforMonths
     @tableName Nvarchar(128)
 as 
@@ -112,6 +121,8 @@ Begin
 	Unpivoted_Table';
 	Exec Sp_executesql @query;
 END;
+
+go
 
 -- Applying the created Procedures on the three table to see outcome
 
@@ -163,11 +174,28 @@ exec dbo.UnpivotdataforMonths @tableName = 'June_2022';
  insert into #Temp_Attendance
  exec dbo.UnpivotdataforMonths @tableName = 'June_2022';
 
- select * from #Temp_Attendance
+ select * from #Temp_Attendance;
+
+ -- To have a clear understanding of what Attendance status is all about, I had to join the temporary table to the atttebdabce key table on attendace status and attendance key
+
+ Drop Table if exists #Temp_Attendance
+ Create Table #Temp_Attendance (
+ Employee_Code Nvarchar (225), Name Nvarchar (225), 
+ Dates Nvarchar (225), Attendance_Status Nvarchar (225))
 
 
+ insert into #Temp_Attendance
+ exec dbo.UnpivotdataforMonths @tableName = 'Apr_2022';
 
+ insert into #Temp_Attendance
+ exec dbo.UnpivotdataforMonths @tableName = 'May_2022';
 
+ insert into #Temp_Attendance
+ exec dbo.UnpivotdataforMonths @tableName = 'June_2022';
+
+ select Employee_Code, Name, DAtes, Attendance_Status, Attendance_detail 
+ from #Temp_Attendance join Attendance_Key on
+ [ATTENDANCE KEY] = Attendance_Status;
 
 
 

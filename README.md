@@ -1,4 +1,4 @@
-# HR-Analytics-SQL-Tableau
+# INTRODUCTION
 
 Hemanand Vadivel data analytics manager experienced in the use of power BI. Pinali Mandalia a HR Generalist from Atliq Technologies.
 The tutor is a co-founder of Atliq Technologies. Data to be worked with is a data of 3 months and on the columns is attendance for each day.
@@ -14,6 +14,15 @@ The Attendance key code table has Work From Home denoted as WFH, it also has HWF
 This will help in planning team building activity or team lunch, it would be done when majority of people are present in the company.
 knowing this will help understand pattern for hybrid workers, thereby aiding capacity planning. this will help is space utilization and save cost on infastructure.
 * know percentage of people taking sick leave especially incase of high percentage in one day. This could be an indication of COVID, flu or epidemics and in such situation, precausion is needed like sanitization and better spacing in work place.
+
+
+## TOOLS USED
+
+* SQL
+* Power Query
+* Tableau
+
+
 
 ## DATA CLEANING AND PREPARATION WITH SQL
 
@@ -59,7 +68,10 @@ knowing this will help understand pattern for hybrid workers, thereby aiding cap
 
 `Exec sp_rename 'Apr_2022.F2','Name', 'COLUMN';`
 
-![Alt Text]()       ![Alt Text]()
+
+|       ATLIQ RENAME TO EMPLOYEE CODE                              |     F2  RENAME TO NAME                                       |
+| ---------------------------------------------------------------- | ------------------------------------------------------------ |
+|         ![Alt Text]()                                            |        ![Alt Text]()                                         |
 
 * VIEWING FOR CHANGES
 
@@ -109,7 +121,9 @@ where AtliQ = 'Employee Code';
 
 `Exec sp_rename 'May_2022.F2','Name', 'COLUMN';`
 
-![Alt Text]()       ![Alt Text]()
+|       ATLIQ RENAME TO EMPLOYEE CODE                              |     F2  RENAME TO NAME                                       |
+| ---------------------------------------------------------------- | ------------------------------------------------------------ |
+|         ![Alt Text]()                                            |        ![Alt Text]()                                         |
 
 * VIEWING FOR CHANGES
 
@@ -125,7 +139,7 @@ where AtliQ = 'Employee Code';
 
 ![Alt Text]()
 
-* DELETING THE FIRST COLUMN
+* DELETING THE FIRST ROW IN JUNE
 
      The first row contains weekday, which I can easily create with the date column. To aid the data cleaning process, I need to delete it.
 
@@ -164,13 +178,39 @@ where AtliQ = 'Employee Code';
 `Exec sp_rename 'June_2022.F2','Name', 'COLUMN';`
 
 
-![Alt Text]()           ![Alt Text]()
+|       ATLIQ RENAME TO EMPLOYEE CODE                              |     F2  RENAME TO NAME                                       |
+| ---------------------------------------------------------------- | ------------------------------------------------------------ |
+|         ![Alt Text]()                                            |        ![Alt Text]()                                         |
 
 * VIEWING TO SEE CHANGES
 
 `select * from June_2022;`
 
 ![Alt Text]()
+
+### CLEANING ATTENDACE_STATUS TABLE
+
+* VIEWING THE TABLE
+
+`select * from Attendance_Key`
+
+![Alt Text]()
+
+* RENAMING THE SECOND COLUMN F2
+
+There was need to rename this column as its the column that tells the actual meaning of each accronym in the Attendance status column
+
+`Exec sp_rename 'Attendance_key.F2','Attendance_detail', 'COLUMN';`
+
+![Alt Text]()
+
+* VIEWING THE TABLE FOR CORRECTED COLUMN NAME
+
+`select * from Attendance_Key;`
+
+![Alt Text]()
+
+
 
 
 ### CREATING PROCEDURE TO UNPIVOT THE DATA
@@ -213,7 +253,9 @@ I will run this procedure to see if its working. if it gives no error, then its 
 	`Exec Sp_executesql @query;`
 `END;`
 
-![Alt Text]()
+|       FIRST PART                                                 |     SECOND PART                                              |
+| ---------------------------------------------------------------- | ------------------------------------------------------------ |
+|         ![Alt Text]()                                            |        ![Alt Text]()                                         |
 
 its obvious it's working.
 
@@ -231,8 +273,12 @@ exec dbo.UnpivotdataforMonths @tableName = 'June_2022';
 
 
 
-![Alt Text]()                   ![Alt Text]()                      ![Alt Text]()
+|       APRIL                              |     MAY                                     |     JUNE                               |
+| ---------------------------------------- | ------------------------------------------- | -------------------------------------- |
+|         ![Alt Text]()                    |        ![Alt Text]()                        |       ![Alt Text]()                    |
 
+
+_**NB**_ There is a datatype error with June.
 
 * CHECKING THE JUNE TABLE TO SEE DATA TYPES OF EACH COLUMN SO AS TO FIX THE ERROR
 
@@ -243,7 +289,14 @@ As seen above there was an error due to data type incompactability in the june t
 `from INFORMATION_SCHEMA.COLUMNS`
 `where TABLE_NAME = 'june_2022';`
 
-![Alt Text]()
+|       FIRST PART WITH ALL OK                             |     SECOND PART WHERE THE CHALLENGE IS                       |
+| ---------------------------------------------------------| ------------------------------------------------------------ |
+|         ![Alt Text]()                                    |        ![Alt Text]()                                         |
+
+
+Looking at this, I can see that among all the date column names I want to unpivot i.e columns that have '-', it's only [29 - Jun] and [30 - Jun] that has data type that is not nvarchar, so there is the Problem. 
+
+_**NB**_ Nvarchar is the best data type when you want to do a dynamic SQL or Procedure because it accept differnt kinds of characters.
 
 * CHANGING DATA TYPE FOR COLUMN [29 - Jun] and [30 - Jun]
 
@@ -255,7 +308,9 @@ since I have foud out its [29 - Jun] and [30 - Jun], let me change the data type
 `Alter Table June_2022`
 `Alter column [30 - Jun] nvarchar(255);`
 
-![Alt Text]()                        ![Alt Text]()
+|       CHANGING DATA TYPE FOR [29 - Jun]                  |     CHANGING DATA TYPE FOR [30 - Jun]                        |
+| -------------------------------------------------------- | ------------------------------------------------------------ |
+|         ![Alt Text]()                                    |        ![Alt Text]()                                         |
 
 
 * CREATING  A TEMPORARY TABLE
@@ -280,10 +335,39 @@ since I have foud out its [29 - Jun] and [30 - Jun], let me change the data type
 
  `select * from #Temp_Attendance`
 
-![Alt Text]()                                         ![Alt Text]()
+|       FIRST PART OF THE UNIONED TEMPORARY TABLE          |     FIRST PART OF THE UNIONED TEMPORARY TABLE                |
+| -------------------------------------------------------- | ------------------------------------------------------------ |
+|         ![Alt Text]()                                    |        ![Alt Text]()                                         |
+
+Here, you can see that the three tables has been joined sucessfully together using the created and stored procedure as well into a temporary table.
+
+### JOINING THE TABLE TO THE ATTENDANCE KEY TABLE
+
+ This step make every thing about the table clear as it contains also meaning of every acronym in the main table.
+
+  `Drop Table if exists #Temp_Attendance`
+ `Create Table #Temp_Attendance (`
+ `Employee_Code Nvarchar (225), Name Nvarchar (225),` 
+ `Dates Nvarchar (225), Attendance_Status Nvarchar (225))`
 
 
+ `insert into #Temp_Attendance`
+ `exec dbo.UnpivotdataforMonths @tableName = 'Apr_2022';`
 
+ `insert into #Temp_Attendance`
+ `exec dbo.UnpivotdataforMonths @tableName = 'May_2022';`
+
+ `insert into #Temp_Attendance`
+ `exec dbo.UnpivotdataforMonths @tableName = 'June_2022';`
+
+ ` select Employee_Code, Name, DAtes, Attendance_Status, Attendance_detail`
+ `from #Temp_Attendance join Attendance_Key on`
+ `[ATTENDANCE KEY] = Attendance_Status;`
+
+
+![Alt Text]()
+
+Now, Everything looks better after joining the there attendance table and the Attendance key table which explains every acronym in the attendace status column. In this format, anyone could understand what the data is all about.
 
 
 ## DATA CLEANING WITH POWER QUERY
