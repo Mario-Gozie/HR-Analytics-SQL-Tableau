@@ -42,7 +42,7 @@ insights like:
 
 `select * from Apr_2022;`
 
-![Alt Text]()
+![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Viewing%20April%20Table%20first%20time%20.png)
 
 ##### DELETING FIRST ROW
 
@@ -52,14 +52,14 @@ insights like:
 `delete from Apr_2022`
 `where AtliQ = 'Employee Code';`
 
-![Alt Text]()
+![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Deleting%20April%20Table%20first%20row.png)
 
 
 ##### VIEWING THE CHANGE
 
 `select * from Apr_2022;`
 
-![Alt Text]()
+![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/viewing%20April%20after%20first%20row%20delete.png)
 
 
 ##### DROPING MAY 1ST COLUMN 
@@ -70,12 +70,18 @@ insights like:
 `Drop Column [1 - May];`
 
 
-![Alt Text]()
+![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/deleting%201%20may%20column.png)
+
+##### VIEWING TABLE AFTER DELETING FIRST OF MAY COLUMN
+
+`select * from Apr_2022;`
+
+![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/viewing%20after%20deleting%201%20May.png)
 
 
 ##### RENAMINING OF COLUMNS (ATLIQ AND F2)
 
-   I renamed this column so it could be easy to identify what they represent.
+I renamed this column so it could be easy to identify what they represent.
 
 `Exec sp_rename 'Apr_2022.AtliQ','Employee_Code', 'COLUMN';`
 
@@ -91,7 +97,7 @@ insights like:
 
 `select * from May_2022;`
 
-![Alt Text]()
+![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Viewing%20April%20after%20columns%20Rename.png)
 
 ### PARTIAL CLEANING OF MAY 2022 DATA
 
@@ -99,7 +105,7 @@ insights like:
 
 `select * from May_2022;`
 
-![Alt Text]()
+![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/viewing%20May%20column%20first%20time.png)
 
 ##### DELETING THE FIRST ROW
 
@@ -108,27 +114,29 @@ insights like:
 `delete from May_2022`
 `where AtliQ = 'Employee Code';`
 
-![Alt Text]()
+![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Deleting%20first%20Row%20in%20May%20Table.png)
 
 ##### VIEWING FOR CHANGES
 
 `select * from May_2022;`
 
-![Alt Text]()
+![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/viewing%20May%20after%20deleting%20first%20Row.png)
 
 
 ##### DELETING FIRST OF JUNE COLUMN
 
-   Just like in the April table, 1st of June is not supposed to be a column in May table so I had to delete.
+Just like in the April table, 1st of June is not supposed to be a column in May table so I had to delete.
 
 `Alter Table May_2022`
 `Drop Column [1 - Jun];`
+
+![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/deleting%201%20Jun%20from%20May%20Table.png)
 
 ##### VIEWING FOR CHANGES
 
 `select * from May_2022;`
 
-![Alt Text]()
+![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/viewing%20May%20Table%20after%20deleting%201%20Jun%20column.png)
 
 
 ##### RENAMING COLUMNS (ATLIQ AND F2)
@@ -141,14 +149,14 @@ Just like in the May Table, there is need to rename the first two column to Empl
 
 |       ATLIQ RENAME TO EMPLOYEE CODE                              |     F2  RENAME TO NAME                                       |
 | ---------------------------------------------------------------- | ------------------------------------------------------------ |
-|         ![Alt Text]()                                            |        ![Alt Text]()                                         |
+|         ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Renaming%20Employee%20code%20for%20May.png)                                            |        ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Renaming%20Name%20column%20May.png)                                         |
 
 
 ##### VIEWING FOR CHANGES
 
 `select * from May_2022;`
 
-![Alt Text]()
+![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/viewing%20to%20see%20rename%20changes%20May.png)
 
 ### PARTIAL CLEANING OF JUNE DATA 
 
@@ -156,7 +164,7 @@ Just like in the May Table, there is need to rename the first two column to Empl
 
 `select * from June_2022;`
 
-![Alt Text]()
+![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/viewing%20June%20Table%20first%20time.png)
 
 
 ##### DELETING THE FIRST ROW IN JUNE
@@ -166,26 +174,26 @@ The first row contains weekday, which I can easily create with the date column. 
 `delete from June_2022`
 `where AtliQ = 'Employee Code';`
 
-![Alt Text]()
+![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/deleting%20first%20Row%20June%20Table.png)
 
 ##### VIEWING TO SEE CHANGES
 
 `select * from June_2022;`
 
-![Alt Text]()
+![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/viewing%20June%20after%20Renaming.png)
 
 ##### DROPPING 1- JUN1 COLUMN FROM THE TABLE
 
 `Alter Table June_2022`
 `Drop Column [1 - Jun1];`
 
-![Alt Text]()
+![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/deleting%201%20July%20column%20from%20June.png)
 
 ##### VIEWING TO SEE CHANGES
 
 `select * from June_2022;`
 
-![Alt Text]()
+![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/viewing%20June%20after%20Renaming.png)
 
 
 ##### RENAMING COLUMNS (ATLIQ AND F2)
@@ -200,14 +208,14 @@ These columns need to take the right name for easy identification. That's why I 
 
 |       ATLIQ RENAME TO EMPLOYEE CODE                              |     F2  RENAME TO NAME                                       |
 | ---------------------------------------------------------------- | ------------------------------------------------------------ |
-|         ![Alt Text]()                                            |        ![Alt Text]()                                         |
+|         ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Employee%20Code%20rename%20june.png)                                            |        ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Rename%20Name%20column%20June.png)                                         |
 
 
 ##### VIEWING TO SEE CHANGES
 
 `select * from June_2022;`
 
-![Alt Text]()
+![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/viewing%20June%20after%20Renaming.png)
 
 ### CLEANING ATTENDACE_STATUS TABLE
 
@@ -215,7 +223,7 @@ These columns need to take the right name for easy identification. That's why I 
 
 `select * from Attendance_Key`
 
-![Alt Text]()
+![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/viewing%20the%20attendance%20key%20table%20first%20time.png)
 
 ##### RENAMING THE SECOND COLUMN F2
 
@@ -223,13 +231,13 @@ There was need to rename this column as its the column that tells the actual mea
 
 `Exec sp_rename 'Attendance_key.F2','Attendance_detail', 'COLUMN';`
 
-![Alt Text]()
+![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Renaming%20in%20the%20Attendance%20key%20table.png)
 
 ##### VIEWING THE TABLE FOR CORRECTED COLUMN NAME
 
 `select * from Attendance_Key;`
 
-![Alt Text]()
+![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Viewing%20out%20come%20of%20column%20rename%20attendance%20key%20table.png)
 
 
 
@@ -277,7 +285,7 @@ I will run this procedure to see if its working. if it gives no error, then its 
 
 |       FIRST PART                                                 |     SECOND PART                                              |
 | ---------------------------------------------------------------- | ------------------------------------------------------------ |
-|         ![Alt Text]()                                            |        ![Alt Text]()                                         |
+|         ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Procedure%20First%20Part.png)                                            |        ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Procedure%20second%20Part.png)                                         |
 
 
 Its obvious it's working.
@@ -298,7 +306,7 @@ Here I am checking if the procedure could do the task it was created for. This i
 
 |       APRIL                              |     MAY                                     |     JUNE                               |
 | ---------------------------------------- | ------------------------------------------- | -------------------------------------- |
-|         ![Alt Text]()                    |        ![Alt Text]()                        |       ![Alt Text]()                    |
+|         ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Testing%20Procedure%20for%20April%20Data.png)                    |        ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Testing%20Procedure%20for%20May%20Data.png)                        |       ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Testing%20Procedure%20for%20June%20Data%20error.png)                    |
 
 
 _**NB**_ There is a datatype error with June.
@@ -314,7 +322,7 @@ As seen above there was an error due to data type incompactability in the june t
 
 |       FIRST PART WITH ALL OK                              |     SECOND PART WHERE THE CHALLENGE IS                       |
 | --------------------------------------------------------- | ------------------------------------------------------------ |
-|         ![Alt Text]()                                     |        ![Alt Text]()                                         |
+|         ![Alt Text]()                                     |        ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Here%20is%20the%20data%20type%20datetime%20June.png)                                         |
 
 
 Looking at this, I can see that among all the date column names I want to unpivot i.e columns that have '-', it's only [29 - Jun] and [30 - Jun] that has data type that is not nvarchar, so there is the Problem. 
@@ -333,8 +341,14 @@ since I have foud out its [29 - Jun] and [30 - Jun], let me change the data type
 
 |       CHANGING DATA TYPE FOR [29 - Jun]                  |     CHANGING DATA TYPE FOR [30 - Jun]                        |
 | -------------------------------------------------------- | ------------------------------------------------------------ |
-|         ![Alt Text]()                                    |        ![Alt Text]()                                         |
+|         ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/changing%2029%20june%20Data%20type.png)                                    |        ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Changing%2030%20June%20Data%20Type.png)                                         |
 
+
+##### RUNNING THE PROCEDURE AGAIN FOR JUNE TO UNPIVOT
+
+`exec dbo.UnpivotdataforMonths @tableName = 'June_2022';`
+
+![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Running%20Procedure%20again%20June%20successful.png)
 
 ##### CREATING  A TEMPORARY TABLE
 
@@ -358,11 +372,11 @@ There is need to now bring these three unpivoted tables together. Because I do n
  `select * from #Temp_Attendance`
 
 
-|       FIRST PART OF THE UNIONED TEMPORARY TABLE          |     FIRST PART OF THE UNIONED TEMPORARY TABLE                |
+|       FIRST PART OF THE UNIONED TEMPORARY TABLE          |     SECOND PART OF THE UNIONED TEMPORARY TABLE               |
 | -------------------------------------------------------- | ------------------------------------------------------------ |
-|         ![Alt Text]()                                    |        ![Alt Text]()                                         |
+|         ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Unioning%20the%20three%20unpivoted%20tables%20within%20a%20Temporary%20table.png)                                    |        ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/The%20union%20got%20to%20June.png)                                         |
 
-Here, you can see that the three tables has been joined sucessfully together using the created and stored procedure as well into a temporary table.
+Here, you can see that the three tables has been joined sucessfully together using the created and stored procedure as well into a temporary table i.e April, May and June.
 
 ### JOINING THE TABLE TO THE ATTENDANCE KEY TABLE
 
@@ -388,7 +402,7 @@ Here, you can see that the three tables has been joined sucessfully together usi
  `[ATTENDANCE KEY] = Attendance_Status;`
 
 
-![Alt Text]()
+![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/joining%20the%20three%20attendace%20table%20with%20the%20attendance%20key%20table.png)
 
 Now, Everything looks better after joining the there attendance table and the Attendance key table which explains every acronym in the attendace status column. In this format, anyone could understand what the data is all about.
 
