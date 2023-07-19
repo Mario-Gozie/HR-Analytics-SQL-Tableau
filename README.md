@@ -84,7 +84,7 @@ insights like:
 
 |       ATLIQ RENAME TO EMPLOYEE CODE                              |     F2  RENAME TO NAME                                       |
 | ---------------------------------------------------------------- | ------------------------------------------------------------ |
-|         ![Alt Text]()                                            |        ![Alt Text]()                                         |
+|         ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/April%20Employee%20code%20Rename.png)                                            |        ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/April%20Name%20Column%20Rename.png)                                         |
 
 
 ##### VIEWING FOR CHANGES
@@ -288,11 +288,11 @@ Here I am checking if the procedure could do the task it was created for. This i
 
 
 
-exec dbo.UnpivotdataforMonths @tableName = 'Apr_2022';
+`exec dbo.UnpivotdataforMonths @tableName = 'Apr_2022';`
 
-exec dbo.UnpivotdataforMonths @tableName = 'May_2022';
+`exec dbo.UnpivotdataforMonths @tableName = 'May_2022';`
 
-exec dbo.UnpivotdataforMonths @tableName = 'June_2022';
+`exec dbo.UnpivotdataforMonths @tableName = 'June_2022';`
 
 
 
