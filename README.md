@@ -1,19 +1,29 @@
 # INTRODUCTION
 
-Hemanand Vadivel data analytics manager experienced in the use of power BI. Pinali Mandalia a HR Generalist from Atliq Technologies.
-The tutor is a co-founder of Atliq Technologies. Data to be worked with is a data of 3 months and on the columns is attendance for each day.
-There is also Attendance key codes in another Table which gives details of attendance key codes. The end aim is to build a HR Dashboard.
+A company known as Atliq Technologies wishes to understand working preference of thier staff, so they have decided to get a data analysts on contract who would help them generate insights from their Human Resource data. They have already gotten a data analytics I am a member and have scheduled to have meeting to discuss this task.
+
+_**Disclaimer**_ This is a dummy dataset for practice purpose and do not represent any organization.
+
+## STAKEHOLDERS AND ATENDEES OF THE MEETING
+
+* Dhaval Patel - Co-Founder of Atliq Techmologies
+* Pinali Mandalia - A HR Generalist at Atliq Technologies
+* Data Analytics Team
+
+## STRUCTURE OF DATASET
+
+The data is made of **3 Months** seperate datasets with an **Attendance Key** data that tell more about the acronyms in the main dataset.
 
 
 ## THE MEETTING 
 During the meeting, Pinali Mandalia (HR Generalist) said she has dataset for three months, and she wants to combine them to have insights.
-For example, 
-* The working Preference of people whether they prefer working from home or in the office. if they are taking work from home on mondays and what could be reasons behind that.
-The Attendance key code table has Work From Home denoted as WFH, it also has HWFH which means Half Work From Home.
-* she also said she wants to understand percentage of people present for a given week and a given month. because if people prefer to work from home on mondays and fridays, may be at the begining or end of the month.
-This will help in planning team building activity or team lunch, it would be done when majority of people are present in the company.
-knowing this will help understand pattern for hybrid workers, thereby aiding capacity planning. this will help is space utilization and save cost on infastructure.
-* know percentage of people taking sick leave especially incase of high percentage in one day. This could be an indication of COVID, flu or epidemics and in such situation, precausion is needed like sanitization and better spacing in work place.
+insights like: 
+
+* The working Preference of people. Whether they prefer working from home or in the office. if they are taking work from home on mondays and what could be reasons behind that.
+
+* She also said she wants to understand percentage of people present for a given week and a given month. This will help her know which time within a month people prefer to work from home on mondays and fridays. Whether it is at the begining of the month or at the end. This will help in planning team building activity or team lunch, which should be done when majority of people are present in the company. knowing this will also help understand pattern for hybrid workers, thereby aiding capacity planning to help space utilization and save cost on infastructure.
+
+* She added that knowing percentage of people taking sick leave could be an indication for COVID, flu or epidemics and in such situation, precausion is needed such as sanitization and better spacing in work place.
 
 
 ## TOOLS USED
@@ -28,13 +38,13 @@ knowing this will help understand pattern for hybrid workers, thereby aiding cap
 
 ### PARTIAL CLEANING OF APRIL 2022 DATA
 
-* VIEWING OF APRIL TABLE
+##### VIEWING OF APRIL TABLE
 
 `select * from Apr_2022;`
 
 ![Alt Text]()
 
-* DELETING FIRST ROW
+##### DELETING FIRST ROW
 
   I deleted this row becauese it contains weekday value which i can easily create with the datename function if I wish to. deleting it also made cleaning easy.
 
@@ -44,13 +54,15 @@ knowing this will help understand pattern for hybrid workers, thereby aiding cap
 
 ![Alt Text]()
 
-* VIEWING THE CHANGE
+
+##### VIEWING THE CHANGE
 
 `select * from Apr_2022;`
 
 ![Alt Text]()
 
-* DROPING MAY 1ST COLUMN 
+
+##### DROPING MAY 1ST COLUMN 
 
    I dropped the May 1st column because it is not supposed to be in April Table. However, it had no value because it's workers day and no one works on that day.
 
@@ -60,7 +72,8 @@ knowing this will help understand pattern for hybrid workers, thereby aiding cap
 
 ![Alt Text]()
 
-* RENAMINING OF COLUMNS (ATLIQ AND F2)
+
+##### RENAMINING OF COLUMNS (ATLIQ AND F2)
 
    I renamed this column so it could be easy to identify what they represent.
 
@@ -73,7 +86,8 @@ knowing this will help understand pattern for hybrid workers, thereby aiding cap
 | ---------------------------------------------------------------- | ------------------------------------------------------------ |
 |         ![Alt Text]()                                            |        ![Alt Text]()                                         |
 
-* VIEWING FOR CHANGES
+
+##### VIEWING FOR CHANGES
 
 `select * from May_2022;`
 
@@ -81,96 +95,102 @@ knowing this will help understand pattern for hybrid workers, thereby aiding cap
 
 ### PARTIAL CLEANING OF MAY 2022 DATA
 
-* VIEWING DATA
+##### VIEWING DATA
 
 `select * from May_2022;`
 
-* DELETING THE FIRST ROW
+![Alt Text]()
+
+##### DELETING THE FIRST ROW
 
    The first row is unneccessary and I can create it using the DATENAME function but to ease cleaning, let me remove for now.
 
-delete from May_2022
-where AtliQ = 'Employee Code';
+`delete from May_2022`
+`where AtliQ = 'Employee Code';`
 
 ![Alt Text]()
 
-* VIEWING FOR CHANGES
+##### VIEWING FOR CHANGES
 
 `select * from May_2022;`
 
 ![Alt Text]()
 
-* DELETING FIRST OF JUNE COLUMN
+
+##### DELETING FIRST OF JUNE COLUMN
 
    Just like in the April table, 1st of June is not supposed to be a column in May table so I had to delete.
 
 `Alter Table May_2022`
 `Drop Column [1 - Jun];`
 
-* VIEWING FOR CHANGES
+##### VIEWING FOR CHANGES
 
 `select * from May_2022;`
 
 ![Alt Text]()
 
-* RENAMING COLUMNS (ATLIQ AND F2)
 
-    Just like in the May Table, there is need to rename the first two column to Employee_Code, Name so one can easily understand what they represent.
+##### RENAMING COLUMNS (ATLIQ AND F2)
+Just like in the May Table, there is need to rename the first two column to Employee_Code, Name so one can easily understand what they represent.
 
 `Exec sp_rename 'May_2022.AtliQ','Employee_Code', 'COLUMN';`
 
 `Exec sp_rename 'May_2022.F2','Name', 'COLUMN';`
 
+
 |       ATLIQ RENAME TO EMPLOYEE CODE                              |     F2  RENAME TO NAME                                       |
 | ---------------------------------------------------------------- | ------------------------------------------------------------ |
 |         ![Alt Text]()                                            |        ![Alt Text]()                                         |
 
-* VIEWING FOR CHANGES
 
-`select * from May_2022;
+##### VIEWING FOR CHANGES
+
+`select * from May_2022;`
 
 ![Alt Text]()
 
 ### PARTIAL CLEANING OF JUNE DATA 
 
-* VIEWING JUNE TABLE
+##### VIEWING JUNE TABLE
 
 `select * from June_2022;`
 
 ![Alt Text]()
 
-* DELETING THE FIRST ROW IN JUNE
 
-     The first row contains weekday, which I can easily create with the date column. To aid the data cleaning process, I need to delete it.
+##### DELETING THE FIRST ROW IN JUNE
+
+The first row contains weekday, which I can easily create with the date column. To aid the data cleaning process, I need to delete it.
 
 `delete from June_2022`
 `where AtliQ = 'Employee Code';`
 
 ![Alt Text]()
 
-* VIEWING TO SEE CHANGES
+##### VIEWING TO SEE CHANGES
 
 `select * from June_2022;`
 
 ![Alt Text]()
 
-* DROPPING 1- JUN1 COLUMN FROM THE TABLE
+##### DROPPING 1- JUN1 COLUMN FROM THE TABLE
 
 `Alter Table June_2022`
 `Drop Column [1 - Jun1];`
 
 ![Alt Text]()
 
-* VIEWING TO SEE CHANGES
+##### VIEWING TO SEE CHANGES
 
 `select * from June_2022;`
 
 ![Alt Text]()
 
 
-* RENAMING COLUMNS (ATLIQ AND F2)
+##### RENAMING COLUMNS (ATLIQ AND F2)
 
-  These columns need to take the right name for easy identification. That's why I had to rename.
+These columns need to take the right name for easy identification. That's why I had to rename.
 
 `Exec sp_rename 'june_2022.AtliQ','Employee_Code', 'COLUMN';`
 
@@ -182,7 +202,8 @@ where AtliQ = 'Employee Code';
 | ---------------------------------------------------------------- | ------------------------------------------------------------ |
 |         ![Alt Text]()                                            |        ![Alt Text]()                                         |
 
-* VIEWING TO SEE CHANGES
+
+##### VIEWING TO SEE CHANGES
 
 `select * from June_2022;`
 
@@ -190,13 +211,13 @@ where AtliQ = 'Employee Code';
 
 ### CLEANING ATTENDACE_STATUS TABLE
 
-* VIEWING THE TABLE
+##### VIEWING THE TABLE
 
 `select * from Attendance_Key`
 
 ![Alt Text]()
 
-* RENAMING THE SECOND COLUMN F2
+##### RENAMING THE SECOND COLUMN F2
 
 There was need to rename this column as its the column that tells the actual meaning of each accronym in the Attendance status column
 
@@ -204,7 +225,7 @@ There was need to rename this column as its the column that tells the actual mea
 
 ![Alt Text]()
 
-* VIEWING THE TABLE FOR CORRECTED COLUMN NAME
+##### VIEWING THE TABLE FOR CORRECTED COLUMN NAME
 
 `select * from Attendance_Key;`
 
@@ -215,8 +236,8 @@ There was need to rename this column as its the column that tells the actual mea
 
 ### CREATING PROCEDURE TO UNPIVOT THE DATA
 
- * Looking at the three data sets I have for different months, its obvious that the date row is supposed to be a colum and not a row in orther to aid our analysis. 
- Another way to say this which is better is to say that the data is pivoted. I need to unpivot it. but there is need to create a procedure that will do this with one line of code instead of having to do this seperately for each table. 
+Looking at the three data sets I have for different months, its obvious that the date row is supposed to be a colum and not a row in orther to aid our analysis. 
+Another way to say this which is better is to say that the data is pivoted. I need to unpivot it. but there is need to create a procedure that will do this with one line of code instead of having to do this seperately for each table. 
 
 #### EXPLANATION OF THE PROCEDURE
 
@@ -253,13 +274,15 @@ I will run this procedure to see if its working. if it gives no error, then its 
 	`Exec Sp_executesql @query;`
 `END;`
 
+
 |       FIRST PART                                                 |     SECOND PART                                              |
 | ---------------------------------------------------------------- | ------------------------------------------------------------ |
 |         ![Alt Text]()                                            |        ![Alt Text]()                                         |
 
-its obvious it's working.
 
-* CHEKING IF THE PROCEDURE CAN UNPIVOT THE THREE TABLES
+Its obvious it's working.
+
+##### CHEKING IF THE PROCEDURE CAN UNPIVOT THE THREE TABLES
 
 Here I am checking if the procedure could do the task it was created for. This is done using 'Exec'
 
@@ -280,7 +303,7 @@ exec dbo.UnpivotdataforMonths @tableName = 'June_2022';
 
 _**NB**_ There is a datatype error with June.
 
-* CHECKING THE JUNE TABLE TO SEE DATA TYPES OF EACH COLUMN SO AS TO FIX THE ERROR
+#### CHECKING THE JUNE TABLE TO SEE DATA TYPES OF EACH COLUMN SO AS TO FIX THE ERROR
 
 As seen above there was an error due to data type incompactability in the june table, so I need to find out the columns giving the challenge
 
@@ -289,16 +312,16 @@ As seen above there was an error due to data type incompactability in the june t
 `from INFORMATION_SCHEMA.COLUMNS`
 `where TABLE_NAME = 'june_2022';`
 
-|       FIRST PART WITH ALL OK                             |     SECOND PART WHERE THE CHALLENGE IS                       |
-| ---------------------------------------------------------| ------------------------------------------------------------ |
-|         ![Alt Text]()                                    |        ![Alt Text]()                                         |
+|       FIRST PART WITH ALL OK                              |     SECOND PART WHERE THE CHALLENGE IS                       |
+| --------------------------------------------------------- | ------------------------------------------------------------ |
+|         ![Alt Text]()                                     |        ![Alt Text]()                                         |
 
 
 Looking at this, I can see that among all the date column names I want to unpivot i.e columns that have '-', it's only [29 - Jun] and [30 - Jun] that has data type that is not nvarchar, so there is the Problem. 
 
 _**NB**_ Nvarchar is the best data type when you want to do a dynamic SQL or Procedure because it accept differnt kinds of characters.
 
-* CHANGING DATA TYPE FOR COLUMN [29 - Jun] and [30 - Jun]
+##### CHANGING DATA TYPE FOR COLUMN [29 - Jun] and [30 - Jun]
 
 since I have foud out its [29 - Jun] and [30 - Jun], let me change the data type of both to Nvarchar(255) so it could be same with others
 
@@ -313,10 +336,9 @@ since I have foud out its [29 - Jun] and [30 - Jun], let me change the data type
 |         ![Alt Text]()                                    |        ![Alt Text]()                                         |
 
 
-* CREATING  A TEMPORARY TABLE
+##### CREATING  A TEMPORARY TABLE
 
- There is need to now bring these three unpivoted tables together. Because I do not want to store unneccessary tables within my database, I wish to store the data in a temporary table.
- however, I used a drop table if exist code to drop the table and recreate it so that it could aid easy use when I get data for July and also to prevent storing multiple temporary tables. 
+There is need to now bring these three unpivoted tables together. Because I do not want to store unneccessary tables within my database, I wish to store the data in a temporary table. However, I used a drop table if exist code to drop the table and recreate it so that it could aid easy use when I get data for July and also to prevent storing multiple temporary tables. 
 
  `Drop Table if exists #Temp_Attendance`
  `Create Table #Temp_Attendance (`
@@ -334,6 +356,7 @@ since I have foud out its [29 - Jun] and [30 - Jun], let me change the data type
  `exec dbo.UnpivotdataforMonths @tableName = 'June_2022';`
 
  `select * from #Temp_Attendance`
+
 
 |       FIRST PART OF THE UNIONED TEMPORARY TABLE          |     FIRST PART OF THE UNIONED TEMPORARY TABLE                |
 | -------------------------------------------------------- | ------------------------------------------------------------ |
