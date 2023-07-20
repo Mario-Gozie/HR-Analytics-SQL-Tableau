@@ -346,6 +346,8 @@ since I have foud out its [29 - Jun] and [30 - Jun], let me change the data type
 
 ##### RUNNING THE PROCEDURE AGAIN FOR JUNE TO UNPIVOT
 
+![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/viewing%20to%20check%20data%20type%20error%20June.png) 
+
 This is just to check if the data type change is effective and if I can use the procedure to unpivot.
 
 `exec dbo.UnpivotdataforMonths @tableName = 'June_2022';`
