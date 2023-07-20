@@ -339,8 +339,8 @@ since I have foud out its [29 - Jun] and [30 - Jun], let me change the data type
 `Alter Table June_2022`
 `Alter column [30 - Jun] nvarchar(255);`
 
-|       CHANGING DATA TYPE FOR [29 - Jun]                  |     CHANGING DATA TYPE FOR [30 - Jun]                    |
-| -------------------------------------------------------- | -------------------------------------------------------- |
+|       CHANGING DATA TYPE FOR [29 - Jun]                                |     CHANGING DATA TYPE FOR [30 - Jun]                    |
+| -------------------------------------------------------------------- | -------------------------------------------------------- |
 |         ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/viewing%20to%20check%20data%20type%20error%20June.png)                                    |        ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Changing%2030%20June%20Data%20Type.png)         |
 
 
