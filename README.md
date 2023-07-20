@@ -322,7 +322,7 @@ As seen above there was an error due to data type incompactability in the june t
 
 |       FIRST PART WITH ALL OK                              |     SECOND PART WHERE THE CHALLENGE IS                       |
 | --------------------------------------------------------- | ------------------------------------------------------------ |
-|         ![Alt Text]()                                     |        ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Here%20is%20the%20data%20type%20datetime%20June.png)                                         |
+|         ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/viewing%20to%20check%20data%20type%20error%20June.png)                                     |        ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Here%20is%20the%20data%20type%20datetime%20June.png)                                         |
 
 
 Looking at this, I can see that among all the date column names I want to unpivot i.e columns that have '-', it's only [29 - Jun] and [30 - Jun] that has data type that is not nvarchar, so there is the Problem. 
@@ -342,24 +342,11 @@ since I have foud out its [29 - Jun] and [30 - Jun], let me change the data type
 
 |   CHANGING DATA TYPE FOR [29 - Jun] |   CHANGING DATA TYPE FOR [30 - Jun]   |
 |-------------------------------------|---------------------------------------|
-|   ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/viewing%20to%20check%20data%20type%20error%20June.png)                     |     ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Changing%2030%20June%20Data%20Type.png)                     |
+|   ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/changing%2029%20june%20Data%20type.png)                     |     ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Changing%2030%20June%20Data%20Type.png)                     |
 
-
-
-
-
-
-
-
-
-|       CHANGING DATA TYPE FOR [29 - Jun]                                |     CHANGING DATA TYPE FOR [30 - Jun]                    |
-| -------------------------------------------------------------------- | -------------------------------------------------------- |
-|         ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/viewing%20to%20check%20data%20type%20error%20June.png)                                    |        ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Changing%2030%20June%20Data%20Type.png)         |
 
 
 ##### RUNNING THE PROCEDURE AGAIN FOR JUNE TO UNPIVOT
-
-![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/viewing%20to%20check%20data%20type%20error%20June.png) 
 
 This is just to check if the data type change is effective and if I can use the procedure to unpivot.
 
