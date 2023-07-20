@@ -339,12 +339,14 @@ since I have foud out its [29 - Jun] and [30 - Jun], let me change the data type
 `Alter Table June_2022`
 `Alter column [30 - Jun] nvarchar(255);`
 
-|       CHANGING DATA TYPE FOR [29 - Jun]                  |     CHANGING DATA TYPE FOR [30 - Jun]                        |
-| -------------------------------------------------------- | ------------------------------------------------------------ |
-|         ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/changing%2029%20june%20Data%20type.png)                                    |        ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Changing%2030%20June%20Data%20Type.png)                                         |
+|       CHANGING DATA TYPE FOR [29 - Jun]                  |     CHANGING DATA TYPE FOR [30 - Jun]                    |
+| -------------------------------------------------------- | -------------------------------------------------------- |
+|         ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/viewing%20to%20check%20data%20type%20error%20June.png)                                    |        ![Alt Text](https://github.com/Mario-Gozie/HR-Analytics-SQL-Tableau/blob/main/Images/Changing%2030%20June%20Data%20Type.png)         |
 
 
 ##### RUNNING THE PROCEDURE AGAIN FOR JUNE TO UNPIVOT
+
+This is just to check if the data type change is effective and if I can use the procedure to unpivot.
 
 `exec dbo.UnpivotdataforMonths @tableName = 'June_2022';`
 
